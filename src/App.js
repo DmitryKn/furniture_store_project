@@ -1,11 +1,9 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Navbar, Sidebar, Footer } from './components';
 
 function App() {
-  return (
-    <div className="App">
-      <p>ho</p>
-    </div>
-  );
+  return <h4>Fancy furniture project</h4>;
 }
 
 export default App;
