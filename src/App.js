@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Navbar, Sidebar, Footer } from './components';
 
 function App() {
-  return <h4>Fancy furniture project</h4>;
+  return <h4>Fancy</h4>;
 }
 
 export default App;
