@@ -23,7 +23,7 @@ const initialState = {
   single_product_error: false,
   single_product: {},
 };
-const ProductsContext = React.createContext();
+export const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -68,7 +68,7 @@ export const ProductsProvider = ({ children }) => {
     </ProductsContext.Provider>
   );
 };
-// make sure use
+
 export const useProductsContext = () => {
   return useContext(ProductsContext);
 };
