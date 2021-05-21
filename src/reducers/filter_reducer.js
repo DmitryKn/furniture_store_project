@@ -17,6 +17,18 @@ const filter_reducer = (state, action) => {
       all_products: [...action.payload],
     };
   }
+  if (action.type === SET_GRIDVIEW) {
+    return {
+      ...state,
+      grid_view: true,
+    };
+  }
+  if (action.type === SET_LISTVIEW) {
+    return {
+      ...state,
+      grid_view: false,
+    };
+  }
   return state;
 };
 
