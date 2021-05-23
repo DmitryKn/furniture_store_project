@@ -18,10 +18,10 @@ const initialState = {
   grid_view: true,
   sort: 'price-lowest',
   filters: {
-    search_text: '',
+    text: '',
     company: 'all',
     category: 'all',
-    color: '',
+    color: 'all',
     min_price: 0,
     max_price: 0,
     price: 0,
@@ -61,9 +61,20 @@ export const FilterProvider = ({ children }) => {
     if (name === 'category') {
       value = e.target.textContent;
     }
+    if (name === 'color') {
+      value = e.target.dataset.color;
+    }
+    if (name === 'price') {
+      value = Number(value);
+    }
+    if (name === 'shipping') {
+      value = e.target.checked;
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
-  const clearFilters = () => {};
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
 
   return (
     <FilterContext.Provider
