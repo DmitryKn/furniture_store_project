@@ -11,7 +11,7 @@ const Sort = () => {
     sort,
     updateSort,
   } = useFilterContext();
-  //{`${grid_view ? 'active' : null}`}
+
   return (
     <Wrapper>
       <div className='btn-container'>
