@@ -1,12 +1,98 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useFilterContext } from '../context/filter_context'
-import { getUniqueValues, formatPrice } from '../utils/helpers'
-import { FaCheck } from 'react-icons/fa'
+import React from 'react';
+import styled from 'styled-components';
+import { useFilterContext } from '../context/filter_context';
+import { getUniqueValues, formatPrice } from '../utils/helpers';
+import { FaCheck, FaSearch } from 'react-icons/fa';
 
 const Filters = () => {
-  return <h4>filters</h4>
-}
+  const {
+    filters: {
+      search_text,
+      company,
+      category,
+      color,
+      min_price,
+      max_price,
+      price,
+      shipping,
+    },
+    all_products,
+    updateFilters,
+    clearFilters,
+  } = useFilterContext();
+
+  const categories = getUniqueValues(all_products, 'category');
+  const companies = getUniqueValues(all_products, 'company');
+  const colors = getUniqueValues(all_products, 'color');
+
+  return (
+    <Wrapper>
+      <div className='content'>
+        <form onSubmit={(e) => e.preventDefault()}>
+          {/* search */}
+          <div className='form-control'>
+            <input
+              type='text'
+              name='search_text'
+              placeholder='search...'
+              className='search-input'
+              value={search_text}
+              onChange={updateFilters}
+            />
+          </div>
+          {/* categories */}
+          <div className='form-control'>
+            <h5>category</h5>
+            <div>
+              {categories.map((item, index) => {
+                return (
+                  <button
+                    key={index}
+                    name='category'
+                    type='button'
+                    onClick={updateFilters}
+                    className={`${
+                      category === item.toLowerCase() ? 'active' : null
+                    }`}
+                  >
+                    {item}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {/* companies */}
+          <div className='form-control'>
+            <h5>company</h5>
+            <select
+              name='company'
+              value={company}
+              onChange={updateFilters}
+              className='company'
+            >
+              {companies.map((item, index) => {
+                return (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          {/* colors */}
+          <div className='form-control'>
+            <h5>Colors</h5>
+            <div className='colors'>
+              {colors.map((item, index) => {
+                return <button></button>;
+              })}
+            </div>
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   .form-control {
@@ -25,7 +111,9 @@ const Wrapper = styled.section`
   .search-input::placeholder {
     text-transform: capitalize;
   }
-
+  FaSearch {
+    color: ;
+  }
   button {
     display: block;
     margin: 0.25em 0;
@@ -105,6 +193,6 @@ const Wrapper = styled.section`
       top: 1rem;
     }
   }
-`
+`;
 
-export default Filters
+export default Filters;
