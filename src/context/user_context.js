@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const UserContext = React.createContext();
 export const UserProvider = ({ children }) => {
-  const { loginWithRedirect, logout, user } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
   const [myUser, setMyUser] = useState(null);
 
@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
-// make sure use
+
 export const useUserContext = () => {
   return useContext(UserContext);
 };
