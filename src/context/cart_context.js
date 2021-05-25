@@ -11,7 +11,7 @@ import {
 const getLocalStorage = () => {
   const data = getLocalStorage('cart');
   if (data) {
-    return JSON.parse(localStorage('cart'));
+    return JSON.parse(localStorage.getItem('cart'));
   } else {
     return [];
   }
