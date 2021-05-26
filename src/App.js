@@ -25,7 +25,7 @@ function App() {
         <Route path='/products/:id' exact component={SingleProduct} />
         <Route path='/auth' exact component={Auth} />
         <Route path='/cart' exact component={Cart} />
-        <Route path='/checkout' exact component={Checkout} />
+        <PrivateRoute path='/checkout' exact component={Checkout} />
         <Route path='*' component={Error} />
       </Switch>
       <Footer />
