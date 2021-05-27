@@ -65,8 +65,8 @@ const CheckoutForm = () => {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : '');
   };
-  const handleSubmit = async (ev) => {
-    ev.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -123,13 +123,9 @@ const CheckoutForm = () => {
           </div>
         )}
         {/* Show a success message upon completion */}
-        <p className={succeeded ? 'result-message' : 'result-message hidden'}>
-          Payment succeeded, see the result in your
-          <a href={`https://dashboard.stripe.com/test/payments`}>
-            Stripe dashboard.
-          </a>
-          Refresh the page to pay again.
-        </p>
+        <h4 className={succeeded ? 'result-message' : 'result-message hidden'}>
+          Payment succeeded
+        </h4>
       </form>
     </div>
   );
@@ -171,6 +167,9 @@ const Wrapper = styled.section`
   .result-message {
     line-height: 22px;
     font-size: 16px;
+    color: var(--clr-green-dark);
+    text-align: center;
+    margin-top: 1rem;
   }
 
   .result-message a {
