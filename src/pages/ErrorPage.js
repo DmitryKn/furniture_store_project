@@ -8,7 +8,7 @@ const ErrorPage = () => {
         <h2>404</h2>
         <h3>Sorry, the page connot be found</h3>
         <Link to='/' className='btn'>
-          bach home
+          back home
         </Link>
       </section>
     </Wrapper>
