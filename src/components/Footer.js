@@ -8,6 +8,9 @@ const Footer = () => {
         <span> Fancy furniture</span>
       </h5>
       <h5>All rights reserved</h5>
+      <h5>
+        <span> Created by:</span> Dmitry Knyazev
+      </h5>
     </Wrapper>
   );
 };

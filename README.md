@@ -2,7 +2,7 @@
 
 ## Tools:
 
-JavaScript, React.js
+JavaScript, React.js, HTML, CSS, Styled Components
 
 ### To start:
 
